@@ -1,0 +1,121 @@
+<form [formGroup]="registrationForm" novalidate (ngSubmit)="registrationSubmit()" class="regForm">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Registration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="First Name" formControlName="firstName">
+            <mat-error *ngIf="registrationForm.controls['firstName'].hasError('required')">
+              This Field Is Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Last Name" formControlName="lastName">
+            <mat-error *ngIf="registrationForm.controls['lastName'].hasError('required')">
+              This Field Is Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Street Address" formControlName="streetAddress"></textarea>
+            <mat-error *ngIf="registrationForm.controls['streetAddress'].hasError('required')">
+              This Field Is Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="number" matInput placeholder="Phone Number" formControlName="phoneNumber">
+            <mat-error *ngIf="registrationForm.controls['phoneNumber'].hasError('required')">
+             This Field Is Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="City" formControlName="city">
+            <mat-error *ngIf="registrationForm.controls['city'].hasError('required')">
+              This Field Is Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+              <mat-select placeholder="State" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                    {{ state.name }}
+                  </mat-option>
+                </mat-select>
+            <mat-error *ngIf="registrationForm.controls['state'].hasError('required')">
+             This Field Is Required
+              </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input #postalCode maxlength="5" type="number" matInput placeholder="Zip Code" formControlName="postalCode">
+            <mat-error *ngIf="registrationForm.controls['postalCode'].hasError('required')">
+              This Field Is Required
+              </mat-error>
+              <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="email" matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="registrationForm.controls['email'].hasError('required')">
+                This Field Is Required
+              </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="password" matInput placeholder="Password" formControlName="password">
+            <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">
+              This Field Is Required
+              </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="password" matInput placeholder="Password Confirm" formControlName="passwordConfirm">
+            <mat-error *ngIf="registrationForm.controls['passwordConfirm'].hasError('required')">
+              This Field Is Required
+              </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="#CC3433" type="submit" [disabled]="!registrationForm.valid">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+
+
+<div class="footer"></div>
