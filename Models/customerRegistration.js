@@ -14,7 +14,7 @@ function create(req, res) {
             let email = req.body.email;
             pool.query("INSERT INTO BaseballStats (firstName, lastName, phone, streetAddress, city, state, postalCode, email, password) VALUES(?,?,?,?,?,?,?,?,?)", [req.body.firstName, req.body.lastName, req.body.phoneNumber, req.body.streetAddress, req.body.city, req.body.state, req.body.postalCode, req.body.email, password], (err, result) => {
                 if (!err) {
-                    return res.send({msg:"Signed Up!"})
+                    return res.send({ msg: "Signed Up!" })
                 }
 
                 console.log(err);
