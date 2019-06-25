@@ -5,7 +5,7 @@
   </mat-form-field>
 
   <mat-form-field class="statInput">
-    <mat-select [(ngModel)]="season" placeholder="Regular Season Year">
+    <mat-select [(ngModel)]="season" mastInput placeholder="Regular Season Year">
       <mat-option *ngFor="let year of years" [value]="year.abbreviation">
         {{ year.name }}
       </mat-option>
@@ -15,7 +15,9 @@
 
   <button class="searchButton" mat-raised-button color="#CC3433" (click)="getSearch()">Search</button>
 </div>
-
+<div>
+  <h1>Player Stats</h1>
+</div>
 <app-stat-display [results]="results"></app-stat-display>
 
 <div class="footer"></div>
