@@ -23,5 +23,30 @@ function create(req, res) {
         })
 
 }
+function getAll(req, res){
+    pool.query("SELECT id, username FROM USER", (err, result)=>{
+        res.send({
+            error: err,
+            users: result
+        })
+    })
+}
 
+
+function login(req, res){
+    pool.query("SELECT * FROM BaseballStats WHERE email = ?", [req.body.email], (err, result)=>{
+        if(result[0]){
+            if( bcrypt.compareSync(req.body.password, result[0].password)){
+                return res.send({message: "Welcome Back!"})
+            }
+            else{
+                return res.send({error: "Invalid Email or Password"});
+            }
+        }
+        res.send({error: "Invalid Email or Password"})
+    })
+}
+
+module.exports.getAll = getAll;
+module.exports.login = login;
 module.exports.create = create;

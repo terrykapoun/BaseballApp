@@ -10,6 +10,10 @@ export class RegistrationService {
   registrationSubmit(customer: Object){
    return this.http.post('/customers/signup', customer)
     
-  }   
+  } 
+  
+  loginSubmit(customer: Object) {
+    return this.http.post('/customers/login', customer)
+  }
 }
 

@@ -7,6 +7,7 @@ const customerRoutes = require("./routes/customerRoutes")
 
 app.use(express.static(__dirname + "/dist"))
 app.use(bodyParser.json());
+
 app.use("/customers", customerRoutes);
 
 app.get('/', (req, res) => {
