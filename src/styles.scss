@@ -1,4 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@include mat-core();
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$mblue: (
+    50: #e2e7f0,
+    100: #b7c2db,
+    200: #8799c3,
+    300: #5670aa,
+    400: #325298,
+    500: #0e3386,
+    600: #0c2e7e,
+    700: #0a2773,
+    800: #082069,
+    900: #041456,
+    A100: #8899ff,
+    A200: #556dff,
+    A400: #2242ff,
+    A700: #082cff,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+  );
+
+  $mred: (
+    50: #f9e7e7,
+    100: #f0c2c2,
+    200: #e69a99,
+    300: #db7170,
+    400: #d45252,
+    500: #cc3433,
+    600: #c72f2e,
+    700: #c02727,
+    800: #b92120,
+    900: #ad1514,
+    A100: #ffe0e0,
+    A200: #ffadad,
+    A400: #ff7a7a,
+    A700: #ff6060,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+  );
+
+$baseballstat-app-primary: mat-palette($mblue);
+$baseballstat-app-accent: mat-palette($mred);
+$baseballstat-app-theme: mat-light-theme($baseballstat-app-primary, $baseballstat-app-accent);
+
+@include angular-material-theme($baseballstat-app-theme);
+
+*{
+    font-family: 'Verdana', sans-serif;
+    
+}
+
+body{
+    background-color: #70777e;
+}

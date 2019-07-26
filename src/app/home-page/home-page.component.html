@@ -1,12 +1,18 @@
+<app-header></app-header>
+<!-- <p class="float">Login or Register</p> -->
+<!-- <span class="fill-space"></span> -->
+<div class="center">
+<img src="./assets/1-18482_free-baseball-clipart-free-clip-art-images-image.jpg" alt="Baseball">
+</div>
+<!-- <span class="fill-space"></span> -->
 
-
-
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+<app-footer></app-footer>
+<!-- <mat-sidenav-container class="sidenav-container" color="accent">
+  <mat-sidenav  #drawer class="sidenav" fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
+    <mat-nav-list color="accent">
       <a mat-list-item [routerLink]="['/home']">HomePage</a>
       <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
         [routerLink]="['/registration-page']">Registration</a>
@@ -16,13 +22,13 @@
         [routerLink]="['/stats-page']">Stats Page</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content color="accent">
     <mat-toolbar color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Baseball Stats</span>
+      <span color="accent">Sign up or Log in For Major League Baseball Stats</span>
     </mat-toolbar>
     
     
@@ -33,4 +39,4 @@
   
 
 </mat-sidenav-container>
-
+ -->
