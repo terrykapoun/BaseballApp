@@ -1,23 +1,21 @@
-<div class="inputContainer">
+<app-header></app-header>
+<mat-form-field class="statInput">
+  <input type="text" [(ngModel)]="player_id" matInput placeholder="Active Player ID Number">
+</mat-form-field>
 
-  <mat-form-field class="statInput">
-    <input class="statInput" type="text" [(ngModel)]="player_id" matInput placeholder="Active Player ID Number">
-  </mat-form-field>
-
-  <mat-form-field class="statInput">
-    <mat-select [(ngModel)]="season" mastInput placeholder="Regular Season Year">
-      <mat-option *ngFor="let year of years" [value]="year.abbreviation">
-        {{ year.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<mat-form-field class="statInput">
+  <mat-select [(ngModel)]="season" mastInput placeholder="Regular Season Year">
+    <mat-option *ngFor="let year of years" [value]="year.abbreviation">
+      {{ year.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
 
-  <button class="searchButton" mat-raised-button color="#CC3433" (click)="getSearch()">Search</button>
-</div>
-<div>
-  <h1>Player Stats</h1>
-</div>
+<button mat-raised-button color="accent" (click)="getSearch()" class="button">Search</button>
+
+<h1 class="center">Player Stats</h1>
+
 <app-stat-display [results]="results"></app-stat-display>
 
-<div class="footer"></div>
+<app-footer></app-footer>
