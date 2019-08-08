@@ -9,14 +9,18 @@
   <mat-menu color="accent" #options="matMenu">
     <button mat-menu-item class="menuItem"><a class="navLink" [routerLink]="[ '/home' ]"
         routerLinkActive="active">Home</a></button>
-    <button mat-menu-item class="menuItem" ><a class="navLink" *ngIf="!registrationService.isLoggedIn()"
-        [routerLink]="[ '/registration-page' ]" routerLinkActive="active">Register</a></button>
-    <button mat-menu-item class="menuItem" ><a class="navLink" *ngIf="!registrationService.isLoggedIn()"
-        [routerLink]="[ '/login-page' ]" routerLinkActive="active">Login</a></button>
-    <button mat-menu-item class="menuItem"><a class="navLink" *ngIf="registrationService.isLoggedIn()" [routerLink]="[ '/stats-page' ]"
-        routerLinkActive="active">MLB Stats Page</a></button>
-    <button mat-menu-item class="menuItem" ><a class="navLink" *ngIf="registrationService.isLoggedIn()" (click)="registrationService.isLoggedOut()" style="cursor:pointer"
-        >Logout</a></button>
+
+    <button mat-menu-item class="menuItem"><a class="navLink" *ngIf="!registrationService.isLoggedIn()"
+        [routerLink]="[ '/registration-page' ]" routerLinkActive="active" style="cursor:pointer">Register</a></button>
+
+    <button mat-menu-item class="menuItem"><a class="navLink" *ngIf="!registrationService.isLoggedIn()"
+        [routerLink]="[ '/login-page' ]" routerLinkActive="active" style="cursor:pointer">Login</a></button>
+
+    <button mat-menu-item class="menuItem"><a class="navLink" *ngIf="registrationService.isLoggedIn()"
+        [routerLink]="[ '/stats-page' ]" routerLinkActive="active" style="cursor:pointer">MLB Stats Page</a></button>
+
+    <button mat-menu-item class="menuItem"><a class="navLink" *ngIf="registrationService.isLoggedIn()"
+        (click)="registrationService.isLoggedOut()" style="cursor:pointer">Logout</a></button>
 
   </mat-menu>
 </mat-toolbar>

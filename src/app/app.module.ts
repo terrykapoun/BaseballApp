@@ -16,6 +16,7 @@ import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { IdNumberComponent } from './id-number/id-number.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { CommonModule } from '@angular/common';
     HeaderComponent,
     StatDisplayComponent,
     FooterComponent,
+    IdNumberComponent,
 
 
 

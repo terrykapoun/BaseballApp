@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormControl, FormGroup, } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
 
@@ -9,29 +9,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration-page.component.css']
 })
 
-export class RegistrationPageComponent {
-  registrationForm = this.fb.group({
-    firstName: [null, [Validators.required, Validators.minLength(3)]],
-    lastName: [null, [Validators.required, Validators.minLength(3)]],
-    phoneNumber: [null, Validators.required],
-    streetAddress: [null, Validators.required],
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    zip: [null, Validators.required],
-    email: [null, [Validators.required, Validators.email]],
-    password: [null, Validators.required],
-    // passwordConfirm: [null, Validators.required],
+export class RegistrationPageComponent implements OnInit {
+  registrationForm: FormGroup
 
 
+  constructor(private fb: FormBuilder, private regServ: RegistrationService, private router: Router) {
+    this.registrationForm = this.createFormGroup()
+    console.log(this.registrationForm.controls)
+  }
 
+  createFormGroup() {
+    let zipPattern = /^\d{5}(?:[-\s]\d{4})?$/
+    let phonePattern = /^(1?(-?\d{3})-?)?(\d{3})(-?\d{4})$/
 
+    return new FormGroup({
+      firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      phoneNumber: new FormControl('', [Validators.required, Validators.pattern(phonePattern)]),
+      streetAddress: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      city: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      state: new FormControl('', [Validators.required]),
+      zip: new FormControl('', [Validators.required, Validators.pattern(zipPattern)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(20)]),
+      // passwordConfirm: [null, Validators.required],
 
-  });
-error;
+    })
 
-
-  
-
+  };
+  error;
 
   hasUnitNumber = false;
 
@@ -98,21 +104,25 @@ error;
   ];
 
 
-  constructor(private fb: FormBuilder, private regServ: RegistrationService, private router: Router) { }
+
 
   signUp() {
 
     this.regServ.signUp(this.registrationForm.value)
-    .subscribe(
-      (res: any) => {
-        console.log(res)
-        localStorage.setItem('token', res.token)
-        return this.router.navigate(['/login-page'])
-      },
-      err => console.log(err)
-    
-    )
+      .subscribe(
+        (res: any) => {
+          console.log(res)
+          localStorage.setItem('token', res.token)
+          return this.router.navigate(['/login-page'])
+        },
+        err => console.log(err)
 
-    } 
-  
+      )
+
+  }
+  ngOnInit() {
+  }
+
 }
+
+

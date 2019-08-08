@@ -31,12 +31,18 @@
           <mat-error *ngIf="registrationForm.controls['streetAddress'].hasError('required')">
             This Field Is Required
           </mat-error>
+          <mat-error *ngIf="registrationForm.controls['streetAddress'].hasError('maxlength')">
+            No More Then 30 Characters
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <input type="number" matInput placeholder="Phone Number" formControlName="phoneNumber">
           <mat-error *ngIf="registrationForm.controls['phoneNumber'].hasError('required')">
             This Field Is Required
+          </mat-error>
+          <mat-error *ngIf="registrationForm.controls['phoneNumber'].hasError('pattern')">
+            Invalid Phone Number
           </mat-error>
         </mat-form-field>
       </div>
@@ -46,6 +52,9 @@
           <input type="text" matInput placeholder="City" formControlName="city">
           <mat-error *ngIf="registrationForm.controls['city'].hasError('required')">
             This Field Is Required
+          </mat-error>
+          <mat-error *ngIf="registrationForm.controls['city'].hasError('minlength')">
+            At Least 3 Characters Required
           </mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
@@ -64,6 +73,9 @@
           <mat-error *ngIf="registrationForm.controls['zip'].hasError('required')">
             This Field Is Required
           </mat-error>
+          <mat-error *ngIf="registrationForm.controls['zip'].hasError('pattern')">
+            Invalid Zip Code
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width">
@@ -80,6 +92,12 @@
           <input type="password" matInput placeholder="Password" formControlName="password">
           <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">
             This Field Is Required
+          </mat-error>
+          <mat-error *ngIf="registrationForm.controls['password'].hasError('minlength')">
+            At Least 7 Characters Required
+          </mat-error>
+          <mat-error *ngIf="registrationForm.controls['password'].hasError('maxlength')">
+            No More Then 20 Characters
           </mat-error>
         </mat-form-field>
       </div>

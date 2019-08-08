@@ -1,0 +1,11 @@
+<table mat-table [dataSource]="idResults">
+
+    <ng-container matColumnDef="player_id">
+      <th class="tableHeader" mat-header-cell *matHeaderCellDef> Player ID Number</th>
+      <td class="tableData" mat-cell *matCellDef="let idResult"> {{idResult.player_id}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
