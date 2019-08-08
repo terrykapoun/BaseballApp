@@ -8,6 +8,9 @@
         <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
           This Field Is Required
         </mat-error>
+        <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
+          Invalid Email
+        </mat-error>
       </mat-form-field>
 
 
@@ -16,9 +19,12 @@
         <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
           This Field Is Required
         </mat-error>
-        <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
-          This Field Is Required
-        </mat-error>
+        <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">
+            At Least 7 Characters Required
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls['password'].hasError('maxlength')">
+            No More Then 20 Characters
+          </mat-error>
       </mat-form-field>
 
       <!-- <div class="col">
