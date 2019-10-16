@@ -7,8 +7,8 @@ import { RegistrationService } from './registration.service';
 })
 export class LoginGuard implements CanActivate {
 
-  constructor(private regServ: RegistrationService, private router: Router) {}
-  
+  constructor(private regServ: RegistrationService, private router: Router) { }
+
   canActivate(): boolean {
     if (this.regServ.isLoggedIn()) {
       return true

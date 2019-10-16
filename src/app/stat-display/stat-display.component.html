@@ -1,7 +1,6 @@
-
-
 <div class="containter">
-<div class="content-wrap">
+  <div class="content-wrap">
+
 
     <table mat-table [dataSource]="results">
 
@@ -10,32 +9,32 @@
         <td class="tableData" mat-cell *matCellDef="let result"> {{result.team_full}} </td>
       </ng-container>
 
-      <ng-container class="tableColumn" matColumnDef="avg">
+      <ng-container matColumnDef="avg">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef> Batting Average</th>
         <td class="tableData" mat-cell *matCellDef="let result"> {{result.avg}} </td>
       </ng-container>
 
-      <ng-container class="tableColumn" matColumnDef="hr">
+      <ng-container matColumnDef="hr">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef> Home Runs</th>
         <td class="tableData" mat-cell *matCellDef="let result"> {{result.hr}} </td>
       </ng-container>
 
-      <ng-container class="tableColumn" matColumnDef="rbi">
+      <ng-container matColumnDef="rbi">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef> RBIs</th>
         <td class="tableData" mat-cell *matCellDef="let result"> {{result.rbi}} </td>
       </ng-container>
 
-      <ng-container class="tableColumn" matColumnDef="sb">
+      <ng-container matColumnDef="sb">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef> Stolen Bases</th>
         <td class="tableData" mat-cell *matCellDef="let result"> {{result.sb}} </td>
       </ng-container>
 
-      <ng-container class="tableColumn" matColumnDef="ab">
+      <ng-container matColumnDef="ab">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef> At Bats</th>
         <td class="tableData" mat-cell *matCellDef="let result"> {{result.ab}}</td>
       </ng-container>
 
-      <ng-container class="tableColumn" matColumnDef="g">
+      <ng-container matColumnDef="g">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef> Games </th>
         <td class="tableData" mat-cell *matCellDef="let result"> {{result.g}} </td>
       </ng-container>
@@ -44,6 +43,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     </table>
+
   </div>
-  <app-footer></app-footer>
 </div>
+<app-footer></app-footer>

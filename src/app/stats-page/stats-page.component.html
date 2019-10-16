@@ -1,9 +1,5 @@
 <app-header></app-header>
 
-<!-- <mat-form-field class="statInput">
-  <input type="text" [(ngModel)]="name_part" matInput placeholder="Active Hitter Full Name">
-</mat-form-field> -->
-
 <mat-form-field class="statInput">
   <mat-select [(ngModel)]="player_id" matInput placeholder="Active Hitter Name">
     <mat-option *ngFor="let player of players" [value]="player.abbreviation">
@@ -20,13 +16,9 @@
   </mat-select>
 </mat-form-field>
 
-
 <button mat-raised-button color="accent" (click)="getStats()" class="button">Search</button>
-<!-- <button mat-raised-button color="accent" (click)="getPlayerId()" class="button">Search</button> -->
+<h1 class="title">Player Stats</h1>
 
-<h1 class="center">Player Stats</h1>
-
-<!-- <app-id-number [idResults]="results"></app-id-number> -->
 <app-stat-display [results]="results"></app-stat-display>
 
 <app-footer></app-footer>

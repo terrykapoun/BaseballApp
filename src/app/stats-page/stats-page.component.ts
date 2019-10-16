@@ -1,39 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { StatsPageService } from '../stats-page.service';
 import { Stats } from '../stat-display/stats-model';
-import { PlayerNumber } from '../id-model';
+
 @Component({
   selector: 'app-stats-page',
   templateUrl: './stats-page.component.html',
   styleUrls: ['./stats-page.component.scss']
 })
 export class StatsPageComponent implements OnInit {
-  name_part: string;
+
   season: string;
   player_id: string;
-  idResults: PlayerNumber[] = [];
-  results: Stats[] = []
-
+  results: Stats[]
   constructor(private statsPageService: StatsPageService) { }
-
-  getPlayerId() {
-    this.statsPageService.getPlayerId(this.name_part).subscribe(res => {
-      if (typeof res === "object") {
-        this.idResults = [res];
-      } else {
-        this.idResults = res;
-      }
-      console.log(res)
-    })
-  }
-
 
   getStats() {
     this.statsPageService.getSearchResults(this.season, this.player_id).subscribe(res => {
-      if (typeof res === "object") {
-        this.results = [res];
-      } else {
+      console.log(typeof res);
+      if (Array.isArray(res)) {
         this.results = res;
+      }
+      else {
+        this.results = [res];
       }
       console.log(res);
     })
