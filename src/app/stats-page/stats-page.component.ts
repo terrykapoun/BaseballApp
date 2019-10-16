@@ -8,19 +8,20 @@ import { Stats } from '../stat-display/stats-model';
   styleUrls: ['./stats-page.component.scss']
 })
 export class StatsPageComponent implements OnInit {
-  
+
   season: string;
   player_id: string;
-  results: Stats[] = []
-
+  results: Stats[]
   constructor(private statsPageService: StatsPageService) { }
 
   getStats() {
     this.statsPageService.getSearchResults(this.season, this.player_id).subscribe(res => {
-      if (typeof res === "object") {
-        this.results = [res];
-      } else {
+      console.log(typeof res);
+      if (Array.isArray(res)) {
         this.results = res;
+      }
+      else {
+        this.results = [res];
       }
       console.log(res);
     })

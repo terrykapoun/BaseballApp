@@ -6,33 +6,25 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class RegistrationService {
-  
+
   constructor(private http: HttpClient, private router: Router) { }
 
-  signUp(customer: Object){
-   return this.http.post('/customers/signup', customer)
-    
-  } 
-  
+  signUp(customer: Object) {
+    return this.http.post('/customers/signup', customer)
+  }
   login(customer: Object) {
     return this.http.post('/customers/login', customer);
-
-    }
-
-    isLoggedIn() {
-      return !!localStorage.getItem('token')
-    }
-
-    isLoggedOut() {
-      localStorage.removeItem('token')
-      return this.router.navigate(['/home'])
-    }
-  
-
-  
+  }
+  isLoggedIn() {
+    return !!localStorage.getItem('token')
+  }
+  isLoggedOut() {
+    localStorage.removeItem('token')
+    return this.router.navigate(['/home'])
+  }
 }
-  
 
-  
+
+
 
 
