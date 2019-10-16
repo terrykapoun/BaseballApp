@@ -24,13 +24,17 @@ const User = require("../models/customerRegistration")
 const mongoose = require('mongoose')
 const db = "mongodb+srv://terry:Buttley_500@baseballstatdb-ikut5.mongodb.net/test?retryWrites=true&w=majority"
 
-mongoose.connect(db, err => {
+
+
+mongoose.connect( db, { useNewUrlParser: true }); 
+
+err => {
     if (err) {
         console.error('Error!' + err)
     } else {
         console.log('Connected to mongodb')
     }
-})
+}
 
 router.get('/', (req, res) => {
     res.send('From customers route')
